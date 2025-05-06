@@ -1,0 +1,9 @@
+<h1><%= @task.title %></h1>
+<p><%= @task.details %></p>
+<%= check_box_tag "completed_#{@task.id}", '1', @task.completed %>
+<%= label_tag "completed_#{@task.id}", "Completed" %>
+
+<%= link_to "Delete",
+  task_path(@task),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%>
