@@ -1,6 +1,15 @@
-<h1><strong>My Tasks</strong></h1>
-<ul class="tasks">
+<h1 class="mb-4"><strong>My Tasks</strong></h1>
+<ul class="list-group mb-3">
   <% @tasks.each do |task| %>
-    <li><%= link_to task.title, task_path(task.id) %></li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <div>
+      <%= link_to task.title, task_path(task.id) %>
+      </div>
+      <div>
+        <%= link_to "✎", edit_task_path(task), class: "text-primary me-2", title: "Edit" %>
+      </div>
+    </li>
   <% end %>
 </ul>
+
+<%= link_to "Add a new task", new_task_path, class: "btn btn-primary" %>
